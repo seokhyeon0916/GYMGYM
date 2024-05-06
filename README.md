@@ -3,10 +3,13 @@ __아무것도 모르는 컴공생 3학년들이 시작하는 창업 동아리 �
 
 #### 🧑‍🤝‍🧑프로젝트 인원🧑‍🤝‍🧑
 * 20205216 이경민(팀장👑)
+> https://github.com/m2kyungmin
 > 맡은역할 : 프론트엔드(Flutter)
 * 20205206 운석현(팀원)
+> https://github.com/seokhyeon0916
 > 맡은 역할 : 백엔드(Node.js), 데이터베이스(MySQL)
 * 20205226 이시현(팀원)
+> https://github.com/SEEHYUNLEE
 > 맡은역할 : 프론트엔드(Flutter)
 
 #### 📓사업구성📓

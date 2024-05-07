@@ -12,7 +12,75 @@ class Todomate extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSwatch(backgroundColor: Colors.white),
       ),
-      home: const FirstPage(),
+      home: const MyWidget(),
+    );
+  }
+}
+
+class MyWidget extends StatefulWidget {
+  const MyWidget({super.key});
+
+  @override
+  State<MyWidget> createState() => _MyWidgetState();
+}
+
+class _MyWidgetState extends State<MyWidget> {
+  int selectedIndex = 0;
+
+  List<Widget> pages = <Widget>[
+    const FirstPage(),
+    const SecondPage(),
+    const ThirdPage(),
+    const FourthPage(),
+  ];
+
+  void onItemTapped(int index) {
+    setState(() {
+      selectedIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: pages[selectedIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.grey[100],
+        type: BottomNavigationBarType.fixed,
+        unselectedLabelStyle: const TextStyle(color: Colors.blueAccent),
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home,
+              color: Colors.black,
+            ),
+            label: '피드',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.search,
+              color: Colors.black,
+            ),
+            label: '검색',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.chat_bubble,
+              color: Colors.black,
+            ),
+            label: '대화',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.person,
+              color: Colors.black,
+            ),
+            label: 'My',
+          ),
+        ],
+        currentIndex: selectedIndex,
+        onTap: onItemTapped,
+      ),
     );
   }
 }
@@ -154,41 +222,6 @@ class FirstPage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.grey[100],
-        type: BottomNavigationBarType.fixed,
-        unselectedLabelStyle: const TextStyle(color: Colors.blueAccent),
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home,
-              color: Colors.black,
-            ),
-            label: '피드',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.search,
-              color: Colors.black,
-            ),
-            label: '검색',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.chat_bubble,
-              color: Colors.black,
-            ),
-            label: '대화',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.person,
-              color: Colors.black,
-            ),
-            label: 'My',
-          ),
-        ],
-      ),
     );
   }
 }
@@ -198,7 +231,9 @@ class SecondPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Center(
+      child: Text('First Page'),
+    );
   }
 }
 
@@ -216,35 +251,6 @@ class FourthPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}
-
-class MyWidget extends StatefulWidget {
-  const MyWidget({super.key});
-
-  @override
-  State<MyWidget> createState() => _MyWidgetState();
-}
-
-class _MyWidgetState extends State<MyWidget> {
-  @override
-  Widget build(BuildContext context) {
-    int selectedIndex = 0;
-
-    List<Widget> pages = <Widget>[
-      const FirstPage(),
-      const SecondPage(),
-      const ThirdPage(),
-      const FourthPage(),
-    ];
-
-    void onItemTapped(int index) {
-      setState(() {
-        selectedIndex = index;
-      });
-    }
-
     return const Placeholder();
   }
 }

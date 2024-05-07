@@ -1,9 +1,9 @@
 import "package:flutter/material.dart";
 import 'package:animated_splash_screen/animated_splash_screen.dart';
-import "pages/first_page.dart";
-import "pages/second_page.dart";
-import "pages/third_page.dart";
-import "pages/fourth_page.dart";
+import "pages/bottombar_pages/first_page.dart";
+import "pages/bottombar_pages/second_page.dart";
+import "pages/bottombar_pages/third_page.dart";
+import "pages/bottombar_pages/fourth_page.dart";
 
 void main() => runApp(const Todomate());
 
@@ -13,10 +13,11 @@ class Todomate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       darkTheme: ThemeData.dark(),
       themeMode: ThemeMode.dark,
       home: AnimatedSplashScreen(
-        splash: Image.asset('assets/images/Preview.jpg'),
+        splash: Image.asset('assets/images/GYMGYM대지마.png'),
         nextScreen: const MyWidget(),
         splashTransition:
             SplashTransition.fadeTransition, // https://itwise.tistory.com/19

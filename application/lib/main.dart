@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:table_calendar/table_calendar.dart";
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 
 void main() => runApp(const Todomate());
 
@@ -12,7 +13,12 @@ class Todomate extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSwatch(backgroundColor: Colors.white),
       ),
-      home: const MyWidget(),
+      home: AnimatedSplashScreen(
+        splash: Image.asset('assets/images/Preview.jpg'),
+        nextScreen: const MyWidget(),
+        splashTransition:
+            SplashTransition.fadeTransition, // https://itwise.tistory.com/19
+      ),
     );
   }
 }
@@ -248,6 +254,15 @@ class ThirdPage extends StatelessWidget {
 
 class FourthPage extends StatelessWidget {
   const FourthPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
+
+class LoadingPage extends StatelessWidget {
+  const LoadingPage({super.key});
 
   @override
   Widget build(BuildContext context) {

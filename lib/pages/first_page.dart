@@ -17,21 +17,14 @@ class _FirstPageState extends State<FirstPage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  GestureDetector(
-                    child: const Icon(Icons.heart_broken),
-                    onTap: () {},
-                  ),
-                  GestureDetector(
-                    child: const Icon(Icons.task),
-                    onTap: () {},
-                  ),
-                  GestureDetector(
-                    child: const Icon(Icons.menu),
-                    onTap: () {},
-                  ),
+                  Icon(Icons.heart_broken),
+                  SizedBox(width: 13),
+                  Icon(Icons.task),
+                  SizedBox(width: 13),
+                  Icon(Icons.menu),
                 ],
               ),
               const Row(

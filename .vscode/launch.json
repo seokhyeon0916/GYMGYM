@@ -6,20 +6,29 @@
     "configurations": [
         {
             "name": "application",
+<<<<<<< HEAD
             "cwd": "application",
+=======
+>>>>>>> 8e0e4d3 (커뮤니티 기본틀 구상)
             "request": "launch",
             "type": "dart"
         },
         {
             "name": "application (profile mode)",
+<<<<<<< HEAD
             "cwd": "application",
+=======
+>>>>>>> 8e0e4d3 (커뮤니티 기본틀 구상)
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
             "name": "application (release mode)",
+<<<<<<< HEAD
             "cwd": "application",
+=======
+>>>>>>> 8e0e4d3 (커뮤니티 기본틀 구상)
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"

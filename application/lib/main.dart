@@ -18,9 +18,11 @@ class Todomate extends StatelessWidget {
       themeMode: ThemeMode.dark,
       home: AnimatedSplashScreen(
         splash: Image.asset('assets/images/GYMGYM대지마.png'),
+        splashIconSize: double.infinity,
+        backgroundColor: Colors.black,
         nextScreen: const MyWidget(),
         splashTransition:
-            SplashTransition.fadeTransition, // https://itwise.tistory.com/19
+            SplashTransition.slideTransition, // https://itwise.tistory.com/19
       ),
     );
   }

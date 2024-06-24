@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../widgets/custom_dropdown.dart';
 import '../inner/third/open_room.dart';
+import '../inner/third/sports_category/default.dart';
 import '../inner/third/sports_category/jogging.dart';
+import '../inner/third/sports_category/swimming.dart';
+import '../inner/third/sports_category/weight.dart';
 
 class ThirdPage extends StatefulWidget {
   const ThirdPage({super.key});
@@ -20,7 +23,7 @@ class _ThirdPageState extends State<ThirdPage> {
 
   @override
   Widget build(BuildContext context) {
-    int selectedIndex = 1;
+    int selectedIndex = 0;
 
     return MultiProvider(
       providers: [
@@ -36,7 +39,9 @@ class _ThirdPageState extends State<ThirdPage> {
           return Scaffold(
               appBar: AppBar(
                 leadingWidth: 150,
-                leading: const CustomDropdown(),
+                leading: const CustomDropdown(
+                  c_d_type: 'third',
+                ),
                 actions: [
                   GestureDetector(
                     onTap: () {
@@ -84,7 +89,10 @@ class ThirdPageProvider extends ChangeNotifier {
 
 class ListingProvider extends ChangeNotifier {
   List<Widget> pages = <Widget>[
+    const Default(),
+    const Weight(),
     const Jogging(),
+    const Swimming(),
     const Pilates(),
   ];
 

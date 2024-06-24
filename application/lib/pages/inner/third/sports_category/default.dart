@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import '../community_block.dart';
 
-class Jogging extends StatefulWidget {
-  const Jogging({super.key});
+class Default extends StatefulWidget {
+  const Default({super.key});
 
   @override
-  State<Jogging> createState() => _JoggingState();
+  State<Default> createState() => _DefaultState();
 }
 
-class _JoggingState extends State<Jogging> {
+class _DefaultState extends State<Default> {
   @override
   Widget build(BuildContext context) {
     return const community_block();

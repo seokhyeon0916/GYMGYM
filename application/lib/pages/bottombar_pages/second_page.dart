@@ -1,6 +1,7 @@
 import "package:application/pages/inner/second/market.dart";
-import 'package:application/pages/inner/third/sports_category/default.dart';
+import 'package:application/pages/inner/second/weight_information/default.dart';
 import "package:flutter/material.dart";
+import 'package:flutter/widgets.dart';
 import '../../widgets/custom_dropdown.dart';
 import 'package:provider/provider.dart';
 import '../inner/second/weight_information/gain_muscle.dart';
@@ -31,66 +32,94 @@ class _SecondPageState extends State<SecondPage> {
       child: Builder(
         builder: (BuildContext context) {
           return Scaffold(
-              appBar: AppBar(
-                leading: GestureDetector(
-                  onTap: () {
-                    print(SecondPageProvider);
-                    Provider.of<SecondPageProvider>(context, listen: false)
-                        .changeIndex(selectedIndex--);
-                  },
-                  child: const Icon(Icons.arrow_back_ios_rounded,
-                      size: 30, color: Colors.white),
+              floatingActionButton: FloatingActionButton(
+                autofocus: true,
+                //backgroundColor: Colors.white,
+                //foregroundColor: Colors.black,
+                shape: const CircleBorder(side: BorderSide(width: 1)),
+                onPressed: (() {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const market()),
+                  );
+                }),
+                child: const Icon(
+                  Icons.storefront_sharp,
+                  size: 35,
                 ),
-                title: Transform.translate(
-                  offset: const Offset(28, 0),
-                  child: const CustomDropdown(c_d_type: 'second'),
-                ),
-                actions: [
-                  GestureDetector(
-                    onTap: () {
-                      // print(SecondPageProvider.selectedIndex);
-                      print("plus");
-                      Provider.of<SecondPageProvider>(context, listen: false)
-                          .changeIndex(selectedIndex++);
-                    },
-                    child: const Padding(
-                      padding: EdgeInsets.all(13.0),
-                      child: Icon(
-                        Icons.arrow_forward_ios_rounded,
-                        size: 30,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ],
               ),
-              body: Provider.of<ListingProvider>(context).pages[
-                  Provider.of<SecondPageProvider>(context).selectedIndex]);
+              drawer: Drawer(
+                child: ListView(
+                  children: [
+                    ListTile(
+                      title: const Text(
+                        "GYMGYM's PICK",
+                        style: TextStyle(fontSize: 15),
+                      ),
+                      onTap: () {},
+                    ),
+                    ExpansionTile(
+                      title: const Text(
+                        "체중감량 및 체력증진",
+                        style: TextStyle(fontSize: 15),
+                      ),
+                      children: [
+                        ListTile(
+                          leading: const Text('헬스장'),
+                          onTap: () {
+                            print('a');
+                          },
+                        ),
+                        ListTile(
+                          leading: const Text('홈트'),
+                          onTap: () {
+                            print('a');
+                          },
+                        )
+                      ],
+                    ),
+                    ExpansionTile(
+                      title: const Text(
+                        "근육량 증가",
+                        style: TextStyle(fontSize: 15),
+                      ),
+                      children: [
+                        ListTile(
+                          leading: const Text('가슴'),
+                          onTap: () {
+                            print('a');
+                          },
+                        ),
+                        ListTile(
+                          leading: const Text('등'),
+                          onTap: () {
+                            print('a');
+                          },
+                        )
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              appBar: AppBar(
+                // ),
+                title: Image.asset(
+                  'assets/images/GYMGYM대지마.png',
+                  alignment: Alignment.center,
+                  width: 150,
+                ),
+              ),
+              body: SingleChildScrollView(
+                child: Provider.of<ListingProvider>(context).pages[
+                    Provider.of<SecondPageProvider>(context).selectedIndex],
+              ));
         },
       ),
     );
     //  Padding(
     //   padding: const EdgeInsets.all(8.0),
     //   child: Center(
-    //     child: Transform.translate(
-    //       offset: const Offset(140, 320),
-    //       child: ElevatedButton(
-    //         style: ElevatedButton.styleFrom(
-    //           shape: const CircleBorder(),
-    //           padding: const EdgeInsets.all(20),
-    //         ),
-    //         child: const Icon(
-    //           Icons.shopping_bag_outlined,
-    //           size: 30,
-    //         ),
-    //         onPressed: () {
-    //           Navigator.push(
-    //             context,
-    //             MaterialPageRoute(builder: (context) => const market()),
-    //           );
-    //         },
-    //       ),
-    //     ),
+    //
     //   ),
     // ),
   }
@@ -109,7 +138,7 @@ class SecondPageProvider extends ChangeNotifier {
 
 class ListingProvider extends ChangeNotifier {
   List<Widget> pages = <Widget>[
-    const Default(),
+    const DefaultSecond(),
     const GainMuscle(),
     const GainStrength(),
     const LoseWeight(),

@@ -7,20 +7,9 @@ import '../pages/inner/third/sports_category/pilates.dart';
 import '../pages/bottombar_pages/third_page.dart';
 import '../pages/bottombar_pages/second_page.dart';
 
-final List<String> weightType = [
-  '전체',
-  '체중감량',
-  '근육량증가',
-  '체력증진',
-];
+final List<String> weightType = ['전체', '헬스', '러닝', '스포츠', '기타'];
 
-final List<String> items = [
-  '전체',
-  '헬스',
-  '조깅',
-  '수영',
-  '필라테스',
-];
+final List<String> items = ['전체', '헬스', '러닝', '스포츠', '기타'];
 
 String? selectedValue;
 
@@ -44,6 +33,7 @@ class _CustomDropdownState extends State<CustomDropdown> {
       return DropdownButtonHideUnderline(
         child: DropdownButton2<String>(
           isExpanded: true,
+          iconStyleData: const IconStyleData(iconSize: 0.0), // 화살표 없애기
           hint: Text(
             '전체',
             style: TextStyle(

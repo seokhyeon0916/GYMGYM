@@ -7,6 +7,7 @@ import '../inner/third/sports_category/default.dart';
 import '../inner/third/sports_category/jogging.dart';
 import '../inner/third/sports_category/swimming.dart';
 import '../inner/third/sports_category/weight.dart';
+import '../inner/third/pages/chat.dart';
 
 class ThirdPage extends StatefulWidget {
   const ThirdPage({super.key});
@@ -37,11 +38,25 @@ class _ThirdPageState extends State<ThirdPage> {
       child: Builder(
         builder: (BuildContext context) {
           return Scaffold(
+              floatingActionButton: FloatingActionButton(
+                autofocus: true,
+                //backgroundColor: Colors.white,
+                //foregroundColor: Colors.black,
+                shape: const CircleBorder(side: BorderSide(width: 1)),
+                onPressed: (() {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Chat()),
+                  );
+                }),
+                child: const Icon(
+                  Icons.message_outlined,
+                  size: 35,
+                ),
+              ),
               appBar: AppBar(
                 leadingWidth: 150,
-                leading: const CustomDropdown(
-                  c_d_type: 'third',
-                ),
+                leading: const CustomDropdown(c_d_type: 'third'),
                 actions: [
                   GestureDetector(
                     onTap: () {
@@ -68,8 +83,10 @@ class _ThirdPageState extends State<ThirdPage> {
                   ),
                 ],
               ),
-              body: Provider.of<ListingProvider>(context).pages[
-                  Provider.of<ThirdPageProvider>(context).selectedIndex]);
+              body: SingleChildScrollView(
+                child: Provider.of<ListingProvider>(context).pages[
+                    Provider.of<ThirdPageProvider>(context).selectedIndex],
+              ));
         },
       ),
     );
@@ -89,7 +106,7 @@ class ThirdPageProvider extends ChangeNotifier {
 
 class ListingProvider extends ChangeNotifier {
   List<Widget> pages = <Widget>[
-    const Default(),
+    const DefaultThird(),
     const Weight(),
     const Jogging(),
     const Swimming(),

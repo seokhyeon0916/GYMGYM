@@ -4,7 +4,6 @@ import "pages/bottombar_pages/first_page.dart";
 import "pages/bottombar_pages/second_page.dart";
 import "pages/bottombar_pages/third_page.dart";
 import "pages/bottombar_pages/fourth_page.dart";
-import 'pages/user/login.dart';
 
 void main() => runApp(const Todomate());
 
@@ -21,7 +20,7 @@ class Todomate extends StatelessWidget {
         splash: Image.asset('assets/images/GYMGYM대지마.png'),
         splashIconSize: double.infinity,
         backgroundColor: Colors.black,
-        nextScreen: const LogIn(),
+        nextScreen: const MyWidget(),
         splashTransition:
             SplashTransition.slideTransition, // https://itwise.tistory.com/19
       ),

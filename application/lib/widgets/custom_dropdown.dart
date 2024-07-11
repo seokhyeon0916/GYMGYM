@@ -1,9 +1,6 @@
-import 'package:application/pages/inner/third/sports_category/pilates.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../pages/inner/third/sports_category/jogging.dart';
-import '../pages/inner/third/sports_category/pilates.dart';
 import '../pages/bottombar_pages/third_page.dart';
 import '../pages/bottombar_pages/second_page.dart';
 

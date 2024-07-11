@@ -54,49 +54,104 @@ class _SecondPageState extends State<SecondPage> {
                     ListTile(
                       title: const Text(
                         "GYMGYM's PICK",
-                        style: TextStyle(fontSize: 15),
+                        style: TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.bold),
                       ),
                       onTap: () {},
                     ),
-                    ExpansionTile(
-                      title: const Text(
-                        "체중감량 및 체력증진",
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      children: [
-                        ListTile(
-                          leading: const Text('헬스장'),
-                          onTap: () {
-                            print('a');
-                          },
+                    Theme(
+                      data: Theme.of(context)
+                          .copyWith(dividerColor: Colors.transparent),
+                      child: ExpansionTile(
+                        title: const Text(
+                          "체중감량 및 체력증진",
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.bold),
                         ),
-                        ListTile(
-                          leading: const Text('홈트'),
-                          onTap: () {
-                            print('a');
-                          },
-                        )
-                      ],
+                        children: [
+                          ListTile(
+                            leading: const Text('헬스장'),
+                            onTap: () {
+                              print('a');
+                            },
+                          ),
+                          ListTile(
+                            leading: const Text('홈트'),
+                            onTap: () {
+                              print('a');
+                            },
+                          )
+                        ],
+                      ),
                     ),
-                    ExpansionTile(
-                      title: const Text(
-                        "근육량 증가",
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      children: [
-                        ListTile(
-                          leading: const Text('가슴'),
-                          onTap: () {
-                            print('a');
-                          },
+                    Theme(
+                      data: Theme.of(context)
+                          .copyWith(dividerColor: Colors.transparent),
+                      child: ExpansionTile(
+                        title: const Text(
+                          "근육량 증가",
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.bold),
                         ),
-                        ListTile(
-                          leading: const Text('등'),
-                          onTap: () {
-                            print('a');
-                          },
-                        )
-                      ],
+                        children: [
+                          ListTile(
+                            leading: const Text(
+                              '가슴',
+                              style: TextStyle(fontSize: 13),
+                            ),
+                            onTap: () {
+                              print('a');
+                            },
+                          ),
+                          ListTile(
+                            leading: const Text(
+                              '등',
+                              style: TextStyle(fontSize: 13),
+                            ),
+                            onTap: () {
+                              print('a');
+                            },
+                          ),
+                          ListTile(
+                            leading: const Text(
+                              '복근',
+                              style: TextStyle(fontSize: 13),
+                            ),
+                            onTap: () {
+                              print('a');
+                            },
+                          ),
+                          ListTile(
+                            leading: const Text(
+                              '하체',
+                              style: TextStyle(fontSize: 13),
+                            ),
+                            onTap: () {
+                              print('a');
+                            },
+                          ),
+                          ExpansionTile(
+                            title: const Text(
+                              '팔',
+                              style: TextStyle(fontSize: 13),
+                            ),
+                            children: [
+                              ListTile(
+                                leading: const Text('이두'),
+                                onTap: () {
+                                  print('a');
+                                },
+                              ),
+                              ListTile(
+                                leading: const Text('삼두'),
+                                onTap: () {
+                                  print('a');
+                                },
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -106,7 +161,7 @@ class _SecondPageState extends State<SecondPage> {
                 title: Image.asset(
                   'assets/images/GYMGYM대지마.png',
                   alignment: Alignment.center,
-                  width: 150,
+                  width: MediaQuery.of(context).size.width / 2,
                 ),
               ),
               body: SingleChildScrollView(
@@ -116,12 +171,6 @@ class _SecondPageState extends State<SecondPage> {
         },
       ),
     );
-    //  Padding(
-    //   padding: const EdgeInsets.all(8.0),
-    //   child: Center(
-    //
-    //   ),
-    // ),
   }
 }
 

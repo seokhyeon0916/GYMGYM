@@ -21,7 +21,7 @@ class Todomate extends StatelessWidget {
         splash: Image.asset('assets/images/GYMGYM대지마.png'),
         splashIconSize: double.infinity,
         backgroundColor: Colors.black,
-        nextScreen: const LogIn(),
+        nextScreen: const MyWidget(),
         splashTransition:
             SplashTransition.slideTransition, // https://itwise.tistory.com/19
       ),

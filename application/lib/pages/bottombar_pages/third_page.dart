@@ -9,6 +9,8 @@ import '../inner/third/sports_category/swimming.dart';
 import '../inner/third/sports_category/weight.dart';
 import '../inner/third/pages/chat.dart';
 
+var index = true;
+
 class ThirdPage extends StatefulWidget {
   const ThirdPage({super.key});
 
@@ -17,11 +19,6 @@ class ThirdPage extends StatefulWidget {
 }
 
 class _ThirdPageState extends State<ThirdPage> {
-  // List<Widget> pages = <Widget>[
-  //   const Jogging(),
-  //   const Pilates(),
-  // ];
-
   @override
   Widget build(BuildContext context) {
     int selectedIndex = 0;
@@ -39,53 +36,54 @@ class _ThirdPageState extends State<ThirdPage> {
         builder: (BuildContext context) {
           return Scaffold(
               floatingActionButton: FloatingActionButton(
-                autofocus: true,
-                //backgroundColor: Colors.white,
-                //foregroundColor: Colors.black,
-                shape: const CircleBorder(side: BorderSide(width: 1)),
-                onPressed: (() {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Chat()),
-                  );
-                }),
-                child: const Icon(
-                  Icons.message_outlined,
-                  size: 35,
-                ),
-              ),
+                  autofocus: true,
+                  //backgroundColor: Colors.white,
+                  //foregroundColor: Colors.black,
+                  shape: const CircleBorder(side: BorderSide(width: 1)),
+                  onPressed: (() {
+                    setState(() {
+                      index = !index;
+                    });
+                  }),
+                  child: index
+                      ? const Icon(Icons.group, size: 35)
+                      : const Icon(Icons.message_outlined, size: 35)),
               appBar: AppBar(
                 leadingWidth: 150,
                 leading: const CustomDropdown(c_d_type: 'third'),
-                actions: [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const OpenRoom()),
-                      );
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.only(right: 10),
-                      child: Container(
-                        padding: const EdgeInsets.all(6),
-                        decoration: BoxDecoration(
-                          color: Colors.grey,
-                          borderRadius: BorderRadius.circular(10),
+                actions: index
+                    ? []
+                    : [
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const OpenRoom()),
+                            );
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 10),
+                            child: Container(
+                              padding: const EdgeInsets.all(6),
+                              decoration: BoxDecoration(
+                                color: Colors.grey,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: const Text(
+                                "모임개설",
+                                style: TextStyle(fontSize: 12),
+                              ),
+                            ),
+                          ),
                         ),
-                        child: const Text(
-                          "모임개설",
-                          style: TextStyle(fontSize: 12),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+                      ],
               ),
               body: SingleChildScrollView(
-                child: Provider.of<ListingProvider>(context).pages[
-                    Provider.of<ThirdPageProvider>(context).selectedIndex],
+                child: index
+                    ? const Chat()
+                    : Provider.of<ListingProvider>(context).pages[
+                        Provider.of<ThirdPageProvider>(context).selectedIndex],
               ));
         },
       ),
@@ -115,4 +113,21 @@ class ListingProvider extends ChangeNotifier {
 
   @override
   notifyListeners();
+}
+
+class ParticipantsProvider extends ChangeNotifier {
+  int _participants = 2;
+
+  int get participants => _participants;
+
+  set participants(int value) {
+    _participants = value;
+    notifyListeners();
+  }
+
+  void increment() {
+    _participants++;
+    print(_participants);
+    notifyListeners();
+  }
 }

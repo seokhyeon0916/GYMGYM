@@ -15,15 +15,6 @@ class _DefaultState extends State<DefaultSecond> {
     return const Column(
       children: [
         community_block(),
-        community_block(),
-        community_block(),
-        community_block(),
-        community_block(),
-        community_block(),
-        community_block(),
-        community_block(),
-        community_block(),
-        community_block(),
       ],
     ); //테스트용 삭제예정.
   }
